@@ -18,10 +18,20 @@ public class MyCustomService extends Service {
         //This will play the audio of default ringtone in the device
         player = MediaPlayer.create(this, Settings.System.DEFAULT_RINGTONE_URI);
 
-        //Play the ringtone audio on loop (continously)
+        //Play the ringtone audio on loop (continuously)
         player.setLooping(true);
 
+        //START_NOT_STICKY can be used for running services that
+        //perform specific tasks and don't need to be running continuously!
+//        return START_NOT_STICKY;
         return START_STICKY;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+
+        player.stop();
     }
 
     @Nullable
