@@ -23,7 +23,7 @@
         </activity>
 
         <service
-            android:name=".MyCustomService"/>
+            android:name=".MyCustomService" android:enabled="true"/>
 
     </application>
 
